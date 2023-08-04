@@ -94,6 +94,14 @@
 			path = Delegate;
 			sourceTree = "<group>";
 		};
+		55C113DA2A7C867F00B8AE0B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				55E7C7882A75995700BBD7C6 /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		55E7C7782A75995700BBD7C6 = {
 			isa = PBXGroup;
 			children = (
@@ -117,7 +125,7 @@
 		55E7C7832A75995700BBD7C6 /* LoginFirebase */ = {
 			isa = PBXGroup;
 			children = (
-				55E7C7882A75995700BBD7C6 /* ViewController.swift */,
+				55C113DA2A7C867F00B8AE0B /* View */,
 				55C113D82A7C77FF00B8AE0B /* Application */,
 			);
 			path = LoginFirebase;
