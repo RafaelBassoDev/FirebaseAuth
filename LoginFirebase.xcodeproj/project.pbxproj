@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55C113DE2A7D69DE00B8AE0B /* TextInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C113DD2A7D69DE00B8AE0B /* TextInputField.swift */; };
 		55E7C7852A75995700BBD7C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E7C7842A75995700BBD7C6 /* AppDelegate.swift */; };
 		55E7C7872A75995700BBD7C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E7C7862A75995700BBD7C6 /* SceneDelegate.swift */; };
 		55E7C7892A75995700BBD7C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E7C7882A75995700BBD7C6 /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		55C113DD2A7D69DE00B8AE0B /* TextInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputField.swift; sourceTree = "<group>"; };
 		55E7C7812A75995700BBD7C6 /* LoginFirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginFirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55E7C7842A75995700BBD7C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55E7C7862A75995700BBD7C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		55C113DB2A7D69AE00B8AE0B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				55C113DC2A7D69BB00B8AE0B /* TextInputField */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		55C113DC2A7D69BB00B8AE0B /* TextInputField */ = {
+			isa = PBXGroup;
+			children = (
+				55C113DD2A7D69DE00B8AE0B /* TextInputField.swift */,
+			);
+			path = TextInputField;
+			sourceTree = "<group>";
+		};
 		55E7C7782A75995700BBD7C6 = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +143,7 @@
 		55E7C7832A75995700BBD7C6 /* LoginFirebase */ = {
 			isa = PBXGroup;
 			children = (
+				55C113DB2A7D69AE00B8AE0B /* UI */,
 				55C113DA2A7C867F00B8AE0B /* View */,
 				55C113D82A7C77FF00B8AE0B /* Application */,
 			);
@@ -278,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55C113DE2A7D69DE00B8AE0B /* TextInputField.swift in Sources */,
 				55E7C7892A75995700BBD7C6 /* ViewController.swift in Sources */,
 				55E7C7852A75995700BBD7C6 /* AppDelegate.swift in Sources */,
 				55E7C7872A75995700BBD7C6 /* SceneDelegate.swift in Sources */,
