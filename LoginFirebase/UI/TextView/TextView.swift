@@ -87,3 +87,31 @@ extension TextView {
         placeholderHeightAnchor.isActive = false
     }
 }
+
+extension TextView {
+    private func setPlaceholderCenter() {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseIn) { [weak self] in
+                guard let self else { return }
+                placeholderHeightAnchor.isActive = false
+                placeholderBottomAnchor.isActive = true
+                placeholder.font = placeholder.font.withSize(PLACEHOLDER_FONT_SIZE)
+                placeholder.textColor = .systemGray2
+                layoutIfNeeded()
+            }
+        }
+    }
+    
+    private func setPlaceholderTop() {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseOut) { [weak self] in
+                guard let self else { return }
+                placeholderBottomAnchor.isActive = false
+                placeholderHeightAnchor.isActive = true
+                placeholder.font = placeholder.font.withSize(PLACEHOLDER_FONT_SIZE_MINIMIZED)
+                placeholder.textColor = .white
+                layoutIfNeeded()
+            }
+        }
+    }
+}
