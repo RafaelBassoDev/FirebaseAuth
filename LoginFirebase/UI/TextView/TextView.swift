@@ -13,6 +13,8 @@ enum InputFieldType {
 
 class TextView: UIView {
     
+    private let HORIZONTAL_MARGIN: CGFloat = 15
+    
     lazy var textField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -38,6 +40,9 @@ class TextView: UIView {
         layer.cornerRadius = 12
         layer.borderWidth = 1
         layer.borderColor = UIColor.systemGray2.cgColor
+        
+        directionalLayoutMargins.leading = HORIZONTAL_MARGIN
+        directionalLayoutMargins.trailing = HORIZONTAL_MARGIN
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
