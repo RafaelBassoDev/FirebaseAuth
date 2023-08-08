@@ -12,6 +12,25 @@ enum InputFieldType {
 }
 
 class TextView: UIView {
+    
+    lazy var textField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.font = UIFont(name: "HelveticaNeue", size: 16)
+        textField.tintColor = .white
+        textField.layer.borderColor = UIColor.clear.cgColor
+        return textField
+    }()
+    
+    lazy var placeholder: UILabel = {
+       let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont(name: "HelveticaNeue", size: 16)
+        label.textColor = .systemGray2
+        label.text = "Username or email"
+        return label
+    }()
+    
     init(type: InputFieldType) {
         super.init(frame: .zero)
         
