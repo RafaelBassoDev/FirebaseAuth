@@ -94,6 +94,38 @@ extension TextView {
 }
 
 extension TextView {
+    public func didClickOnView() {
+        if hasInputText == false {
+            setPlaceholderTop()
+            
+            addSubview(textField)
+            NSLayoutConstraint.activate([
+                textField.topAnchor.constraint(equalTo: placeholder.bottomAnchor),
+                textField.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
+                textField.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
+                textField.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor)
+            ])
+        }
+        
+        layer.borderColor = UIColor.white.cgColor
+        textField.isUserInteractionEnabled = true
+        textField.becomeFirstResponder()
+    }
+    
+    public func didClickOffView() {
+        
+        if hasInputText == false {
+            setPlaceholderCenter()
+            textField.removeFromSuperview()
+        }
+        
+        layer.borderColor = UIColor.systemGray2.cgColor
+        textField.isUserInteractionEnabled = false
+        textField.resignFirstResponder()
+    }
+}
+
+extension TextView {
     private func setPlaceholderCenter() {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseIn) { [weak self] in
