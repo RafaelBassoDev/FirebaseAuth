@@ -14,10 +14,16 @@ enum InputFieldType {
 class TextView: UIView {
     
     private let HORIZONTAL_MARGIN: CGFloat = 15
+    
     private let FONT_NAME: String = "HelveticaNeue"
+    
     private let TEXTFIELD_FONT_SIZE: CGFloat = 16
+    
     private let PLACEHOLDER_FONT_SIZE: CGFloat = 16
+    private let PLACEHOLDER_COLOR: UIColor = .systemGray2
+    
     private let PLACEHOLDER_FONT_SIZE_MINIMIZED: CGFloat = 13
+    private let PLACEHOLDER_COLOR_MINIMIZED: UIColor = .white
     
     private lazy var textField: UITextField = {
         let textField = UITextField()
@@ -32,7 +38,7 @@ class TextView: UIView {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: FONT_NAME, size: PLACEHOLDER_FONT_SIZE)
-        label.textColor = .systemGray2
+        label.textColor = PLACEHOLDER_COLOR
         label.text = "Username or email"
         return label
     }()
@@ -133,7 +139,7 @@ extension TextView {
                 placeholderHeightAnchor.isActive = false
                 placeholderBottomAnchor.isActive = true
                 placeholder.font = placeholder.font.withSize(PLACEHOLDER_FONT_SIZE)
-                placeholder.textColor = .systemGray2
+                placeholder.textColor = PLACEHOLDER_COLOR
                 layoutIfNeeded()
             }
         }
@@ -146,7 +152,7 @@ extension TextView {
                 placeholderBottomAnchor.isActive = false
                 placeholderHeightAnchor.isActive = true
                 placeholder.font = placeholder.font.withSize(PLACEHOLDER_FONT_SIZE_MINIMIZED)
-                placeholder.textColor = .white
+                placeholder.textColor = PLACEHOLDER_COLOR_MINIMIZED
                 layoutIfNeeded()
             }
         }
