@@ -5,4 +5,8 @@
 //  Created by Rafael Basso on 04/08/23.
 //
 
-import Foundation
+import UIKit
+
+class TextView: UIView {
+    
+}
