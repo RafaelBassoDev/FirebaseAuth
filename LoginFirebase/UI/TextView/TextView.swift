@@ -19,7 +19,7 @@ class TextView: UIView {
     private let PLACEHOLDER_FONT_SIZE: CGFloat = 16
     private let PLACEHOLDER_FONT_SIZE_MINIMIZED: CGFloat = 13
     
-    lazy var textField: UITextField = {
+    private lazy var textField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.font = UIFont(name: FONT_NAME, size: TEXTFIELD_FONT_SIZE)
@@ -28,7 +28,7 @@ class TextView: UIView {
         return textField
     }()
     
-    lazy var placeholder: UILabel = {
+    private lazy var placeholder: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: FONT_NAME, size: PLACEHOLDER_FONT_SIZE)
@@ -36,6 +36,11 @@ class TextView: UIView {
         label.text = "Username or email"
         return label
     }()
+    
+    private var hasInputText: Bool {
+        guard let inputText = textField.text else { return false }
+        return !inputText.isEmpty
+    }
     
     private var placeholderBottomAnchor: NSLayoutConstraint!
     private var placeholderHeightAnchor: NSLayoutConstraint!
