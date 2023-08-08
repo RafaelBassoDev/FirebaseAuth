@@ -43,8 +43,22 @@ class TextView: UIView {
         
         directionalLayoutMargins.leading = HORIZONTAL_MARGIN
         directionalLayoutMargins.trailing = HORIZONTAL_MARGIN
+        
+        setupViewFor(type)
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    
+    private func setupViewFor(_ inputFieldType: InputFieldType) {
+        switch inputFieldType {
+        case .username:
+            textField.autocapitalizationType = .none
+            textField.autocorrectionType = .no
+        case .password:
+            textField.autocapitalizationType = .none
+            textField.autocorrectionType = .no
+            textField.isSecureTextEntry = true
+        }
+    }
     
 }
