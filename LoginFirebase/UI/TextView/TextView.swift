@@ -48,6 +48,10 @@ class TextView: UIView {
         return !inputText.isEmpty
     }
     
+    override var isFirstResponder: Bool {
+        textField.isFirstResponder
+    }
+    
     private var placeholderBottomAnchor: NSLayoutConstraint!
     private var placeholderHeightAnchor: NSLayoutConstraint!
     
