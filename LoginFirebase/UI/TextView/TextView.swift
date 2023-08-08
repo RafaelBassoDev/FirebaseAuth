@@ -37,6 +37,9 @@ class TextView: UIView {
         return label
     }()
     
+    private var placeholderBottomAnchor: NSLayoutConstraint!
+    private var placeholderHeightAnchor: NSLayoutConstraint!
+    
     init(type: InputFieldType) {
         super.init(frame: .zero)
         
@@ -48,11 +51,15 @@ class TextView: UIView {
         directionalLayoutMargins.leading = HORIZONTAL_MARGIN
         directionalLayoutMargins.trailing = HORIZONTAL_MARGIN
         
+        setupPlaceholderView()
+        
         setupViewFor(type)
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    
+}
+
+extension TextView {
     private func setupViewFor(_ inputFieldType: InputFieldType) {
         switch inputFieldType {
         case .username:
@@ -65,4 +72,18 @@ class TextView: UIView {
         }
     }
     
+    private func setupPlaceholderView() {
+        addSubview(placeholder)
+        NSLayoutConstraint.activate([
+            placeholder.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: -2),
+            placeholder.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
+            placeholder.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor)
+        ])
+        
+        placeholderBottomAnchor = placeholder.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor)
+        placeholderBottomAnchor.isActive = true
+        
+        placeholderHeightAnchor = placeholder.heightAnchor.constraint(equalToConstant: 25)
+        placeholderHeightAnchor.isActive = false
+    }
 }
