@@ -23,7 +23,10 @@ class TextView: UIView {
     private let PLACEHOLDER_COLOR: UIColor = .systemGray2
     
     private let PLACEHOLDER_FONT_SIZE_MINIMIZED: CGFloat = 13
-    private let PLACEHOLDER_COLOR_MINIMIZED: UIColor = .white
+    private let PLACEHOLDER_COLOR_MINIMIZED: UIColor = .white.withAlphaComponent(0.8)
+    
+    private let BORDER_COLOR: UIColor = .white.withAlphaComponent(0.7)
+    private let BORDER_COLOR_MINIMIZED: UIColor = .systemGray2
     
     private lazy var textField: UITextField = {
         let textField = UITextField()
@@ -71,7 +74,7 @@ class TextView: UIView {
         backgroundColor = .secondarySystemBackground
         layer.cornerRadius = 12
         layer.borderWidth = 1
-        layer.borderColor = UIColor.systemGray2.cgColor
+        layer.borderColor = BORDER_COLOR_MINIMIZED.cgColor
         
         directionalLayoutMargins.leading = HORIZONTAL_MARGIN
         directionalLayoutMargins.trailing = HORIZONTAL_MARGIN
@@ -149,7 +152,7 @@ extension TextView {
             ])
         }
         
-        layer.borderColor = UIColor.white.cgColor
+        layer.borderColor = BORDER_COLOR.cgColor
         textField.isUserInteractionEnabled = true
         textField.becomeFirstResponder()
     }
@@ -161,7 +164,7 @@ extension TextView {
             textField.removeFromSuperview()
         }
         
-        layer.borderColor = UIColor.systemGray2.cgColor
+        layer.borderColor = BORDER_COLOR_MINIMIZED.cgColor
         textField.isUserInteractionEnabled = false
         textField.resignFirstResponder()
     }
