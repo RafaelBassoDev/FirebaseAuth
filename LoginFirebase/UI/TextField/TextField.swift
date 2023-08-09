@@ -7,10 +7,7 @@
 
 import UIKit
 
-enum InputFieldType {
-    case username, password
-}
-
+// depois criar o SecureTextField
 class TextField: UIView {
     
     private let HORIZONTAL_MARGIN: CGFloat = 15
@@ -34,6 +31,8 @@ class TextField: UIView {
         textField.font = UIFont(name: FONT_NAME, size: TEXTFIELD_FONT_SIZE)
         textField.tintColor = .white
         textField.layer.borderColor = UIColor.clear.cgColor
+        textField.autocapitalizationType = .none
+        textField.autocorrectionType = .no
         return textField
     }()
     
@@ -53,6 +52,7 @@ class TextField: UIView {
         button.tintColor = .systemGray2
         button.contentHorizontalAlignment = .fill
         button.contentVerticalAlignment = .fill
+        button.isHidden = true
         return button
     }()
     
@@ -68,7 +68,7 @@ class TextField: UIView {
     private var placeholderBottomAnchor: NSLayoutConstraint!
     private var placeholderHeightAnchor: NSLayoutConstraint!
     
-    init(type: InputFieldType) {
+    init() {
         super.init(frame: .zero)
         
         backgroundColor = .secondarySystemBackground
@@ -83,25 +83,15 @@ class TextField: UIView {
         
         setupPlaceholderView()
         
-        setupViewFor(type)
+        textField.addTarget(self, action: #selector(didChangeTextFieldInput(_:)), for: .editingChanged)
+        
+        detailButton.addTarget(self, action: #selector(didPressDetailButton), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 }
 
 extension TextField {
-    private func setupViewFor(_ inputFieldType: InputFieldType) {
-        switch inputFieldType {
-        case .username:
-            textField.autocapitalizationType = .none
-            textField.autocorrectionType = .no
-        case .password:
-            textField.autocapitalizationType = .none
-            textField.autocorrectionType = .no
-            textField.isSecureTextEntry = true
-        }
-    }
-    
     private func setupPlaceholderView() {
         addSubview(placeholder)
         NSLayoutConstraint.activate([
@@ -126,8 +116,6 @@ extension TextField {
             detailButton.widthAnchor.constraint(equalToConstant: 30),
             detailButton.heightAnchor.constraint(equalToConstant: 30)
         ])
-        
-        detailButton.addTarget(self, action: #selector(didPressDetailButton), for: .touchUpInside)
     }
 }
 
@@ -135,6 +123,13 @@ extension TextField {
     @objc
     private func didPressDetailButton() {
         textField.text = .none
+        detailButton.isHidden = true
+    }
+    
+    @objc
+    private func didChangeTextFieldInput(_ textField: UITextField) {
+        guard let text = textField.text else { return }
+        detailButton.isHidden = text.isEmpty
     }
 }
 
@@ -152,18 +147,19 @@ extension TextField {
             ])
         }
         
+        detailButton.isHidden = !hasInputText
         layer.borderColor = BORDER_COLOR.cgColor
         textField.isUserInteractionEnabled = true
         textField.becomeFirstResponder()
     }
     
     public func didClickOffView() {
-        
         if hasInputText == false {
             setPlaceholderCenter()
             textField.removeFromSuperview()
         }
         
+        detailButton.isHidden = true
         layer.borderColor = BORDER_COLOR_MINIMIZED.cgColor
         textField.isUserInteractionEnabled = false
         textField.resignFirstResponder()
