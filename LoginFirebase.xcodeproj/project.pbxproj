@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		55C113E42A829EBC00B8AE0B /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C113E32A829EBC00B8AE0B /* TextView.swift */; };
+		55C113E42A829EBC00B8AE0B /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C113E32A829EBC00B8AE0B /* TextField.swift */; };
 		55E7C7852A75995700BBD7C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E7C7842A75995700BBD7C6 /* AppDelegate.swift */; };
 		55E7C7872A75995700BBD7C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E7C7862A75995700BBD7C6 /* SceneDelegate.swift */; };
 		55E7C7892A75995700BBD7C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E7C7882A75995700BBD7C6 /* ViewController.swift */; };
@@ -36,7 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		55C113E32A829EBC00B8AE0B /* TextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		55C113E32A829EBC00B8AE0B /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		55E7C7812A75995700BBD7C6 /* LoginFirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginFirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55E7C7842A75995700BBD7C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55E7C7862A75995700BBD7C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +76,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		553DFF6B2A83E33E00B9C181 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				55C113E32A829EBC00B8AE0B /* TextField.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
 		55C113D82A7C77FF00B8AE0B /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,17 +115,9 @@
 		55C113E12A829D8200B8AE0B /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				55C113E22A829D8800B8AE0B /* TextView */,
+				553DFF6B2A83E33E00B9C181 /* TextField */,
 			);
 			path = UI;
-			sourceTree = "<group>";
-		};
-		55C113E22A829D8800B8AE0B /* TextView */ = {
-			isa = PBXGroup;
-			children = (
-				55C113E32A829EBC00B8AE0B /* TextView.swift */,
-			);
-			path = TextView;
 			sourceTree = "<group>";
 		};
 		55E7C7782A75995700BBD7C6 = {
@@ -298,7 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55E7C7892A75995700BBD7C6 /* ViewController.swift in Sources */,
-				55C113E42A829EBC00B8AE0B /* TextView.swift in Sources */,
+				55C113E42A829EBC00B8AE0B /* TextField.swift in Sources */,
 				55E7C7852A75995700BBD7C6 /* AppDelegate.swift in Sources */,
 				55E7C7872A75995700BBD7C6 /* SceneDelegate.swift in Sources */,
 			);

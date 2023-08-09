@@ -11,7 +11,7 @@ enum InputFieldType {
     case username, password
 }
 
-class TextView: UIView {
+class TextField: UIView {
     
     private let HORIZONTAL_MARGIN: CGFloat = 15
     
@@ -89,7 +89,7 @@ class TextView: UIView {
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 }
 
-extension TextView {
+extension TextField {
     private func setupViewFor(_ inputFieldType: InputFieldType) {
         switch inputFieldType {
         case .username:
@@ -131,14 +131,14 @@ extension TextView {
     }
 }
 
-extension TextView {
+extension TextField {
     @objc
     private func didPressDetailButton() {
         textField.text = .none
     }
 }
 
-extension TextView {
+extension TextField {
     public func didClickOnView() {
         if hasInputText == false {
             setPlaceholderTop()
@@ -170,7 +170,7 @@ extension TextView {
     }
 }
 
-extension TextView {
+extension TextField {
     private func setPlaceholderCenter() {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseIn) { [weak self] in
