@@ -43,6 +43,16 @@ class TextView: UIView {
         return label
     }()
     
+    private lazy var detailButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
+        button.tintColor = .systemGray2
+        button.contentHorizontalAlignment = .fill
+        button.contentVerticalAlignment = .fill
+        return button
+    }()
+    
     private var hasInputText: Bool {
         guard let inputText = textField.text else { return false }
         return !inputText.isEmpty
@@ -65,6 +75,8 @@ class TextView: UIView {
         
         directionalLayoutMargins.leading = HORIZONTAL_MARGIN
         directionalLayoutMargins.trailing = HORIZONTAL_MARGIN
+        
+        setupDetaiButtonView()
         
         setupPlaceholderView()
         
@@ -92,7 +104,7 @@ extension TextView {
         NSLayoutConstraint.activate([
             placeholder.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: -2),
             placeholder.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
-            placeholder.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor)
+            placeholder.trailingAnchor.constraint(equalTo: detailButton.leadingAnchor, constant: -5)
         ])
         
         placeholderBottomAnchor = placeholder.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor)
@@ -100,6 +112,26 @@ extension TextView {
         
         placeholderHeightAnchor = placeholder.heightAnchor.constraint(equalToConstant: 25)
         placeholderHeightAnchor.isActive = false
+    }
+    
+    private func setupDetaiButtonView() {
+        addSubview(detailButton)
+        
+        NSLayoutConstraint.activate([
+            detailButton.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
+            detailButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+            detailButton.widthAnchor.constraint(equalToConstant: 30),
+            detailButton.heightAnchor.constraint(equalToConstant: 30)
+        ])
+        
+        detailButton.addTarget(self, action: #selector(didPressDetailButton), for: .touchUpInside)
+    }
+}
+
+extension TextView {
+    @objc
+    private func didPressDetailButton() {
+        textField.text = .none
     }
 }
 
@@ -113,7 +145,7 @@ extension TextView {
                 textField.topAnchor.constraint(equalTo: placeholder.bottomAnchor),
                 textField.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
                 textField.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
-                textField.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor)
+                textField.trailingAnchor.constraint(equalTo: detailButton.leadingAnchor, constant: -5)
             ])
         }
         
