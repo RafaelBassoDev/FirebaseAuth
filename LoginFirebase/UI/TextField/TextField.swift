@@ -7,7 +7,6 @@
 
 import UIKit
 
-// depois criar o SecureTextField
 class TextField: UIView {
     
     private let HORIZONTAL_MARGIN: CGFloat = 15
@@ -68,7 +67,7 @@ class TextField: UIView {
     private var placeholderBottomAnchor: NSLayoutConstraint!
     private var placeholderHeightAnchor: NSLayoutConstraint!
     
-    init() {
+    init(isSecure: Bool = false) {
         super.init(frame: .zero)
         
         backgroundColor = .secondarySystemBackground
@@ -86,6 +85,8 @@ class TextField: UIView {
         textField.addTarget(self, action: #selector(didChangeTextFieldInput(_:)), for: .editingChanged)
         
         detailButton.addTarget(self, action: #selector(didPressDetailButton), for: .touchUpInside)
+        
+        textField.isSecureTextEntry = isSecure
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
