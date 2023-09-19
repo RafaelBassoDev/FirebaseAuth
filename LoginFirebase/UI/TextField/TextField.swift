@@ -194,3 +194,9 @@ extension TextField {
         }
     }
 }
+
+extension TextField {
+    public func getText() -> String {
+        return textField.text ?? ""
+    }
+}
