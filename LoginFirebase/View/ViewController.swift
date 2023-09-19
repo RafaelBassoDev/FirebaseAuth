@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    private let viewModel = ViewModel()
+    
     private let usernameField = TextField()
     private let passwordField = TextField(isSecure: true)
 
@@ -80,7 +82,15 @@ class ViewController: UIViewController {
     
     @objc
     private func didClickLogInButton() {
-        
+        let username = usernameField.getText()
+        let password = passwordField.getText()
+        do {
+            try viewModel.validateCredentials(username: username, password: password)
+            print("\(username)")
+            print("\(password)")
+        } catch {
+            showAlert(title: "Error", message: error.localizedDescription)
+        }
     }
     
     @objc
