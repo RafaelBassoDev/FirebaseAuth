@@ -17,12 +17,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
+        let navigationController = UINavigationController(rootViewController: LoginViewController())
+        
+        navigationController.modalPresentationStyle = .fullScreen
+        
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         
         window?.overrideUserInterfaceStyle = .dark
-        
         window?.windowScene = windowScene
-        window?.rootViewController = LoginViewController();
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
 
