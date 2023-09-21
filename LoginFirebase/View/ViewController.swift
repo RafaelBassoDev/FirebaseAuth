@@ -14,14 +14,33 @@ class ViewController: UIViewController {
     private let usernameField = TextField()
     private let passwordField = TextField(isSecure: true)
 
+    private let customFontAttributes: [NSAttributedString.Key: Any]? = {
+       return [
+        NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16, weight: .medium)
+       ]
+    }()
+    
     private lazy var logInButton: UIButton = {
-        var config: UIButton.Configuration = .filled()
-        config.background.backgroundColor = .systemBlue
-        config.baseForegroundColor = .white
+        var config: UIButton.Configuration = .borderedProminent()
         config.title = "Log in"
         config.cornerStyle = .capsule
         let button = UIButton(configuration: config)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.setAttributedTitle(NSAttributedString(string: "Log in", attributes: customFontAttributes), for: .normal)
+        return button
+    }()
+    
+    private lazy var createAccountButton: UIButton = {
+        var config: UIButton.Configuration = .filled()
+        config.background.backgroundColor = .clear
+        config.baseForegroundColor = .systemBlue
+        config.title = "Create new account"
+        let button = UIButton(configuration: config)
+        button.setAttributedTitle(NSAttributedString(string: "Create new account", attributes: customFontAttributes), for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = 20
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.systemBlue.cgColor
         return button
     }()
     
@@ -65,7 +84,7 @@ class ViewController: UIViewController {
             logInButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 15),
             logInButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 12),
             logInButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -12),
-            logInButton.heightAnchor.constraint(equalToConstant: 50)
+            logInButton.heightAnchor.constraint(equalToConstant: 40)
         ])
 
         usernameFieldTopAnchor = usernameField.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50)
@@ -73,11 +92,26 @@ class ViewController: UIViewController {
 
         logInButton.addTarget(self, action: #selector(didClickLogInButton), for: .touchUpInside)
         
+        view.addSubview(createAccountButton)
+        NSLayoutConstraint.activate([
+            createAccountButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            createAccountButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 12),
+            createAccountButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -12),
+            createAccountButton.heightAnchor.constraint(equalToConstant: 40)
+        ])
+        
+        createAccountButton.addTarget(self, action: #selector(didClickCreateAccountButton), for: .touchUpInside)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         didClickUsernameField()
+    }
+    
+    @objc
+    private func didClickCreateAccountButton() {
+        
     }
     
     @objc
