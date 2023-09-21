@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.overrideUserInterfaceStyle = .dark
         
         window?.windowScene = windowScene
-        window?.rootViewController = ViewController();
+        window?.rootViewController = LoginViewController();
         window?.makeKeyAndVisible()
     }
 

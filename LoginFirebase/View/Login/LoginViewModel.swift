@@ -18,7 +18,7 @@ enum AuthError: Error, LocalizedError {
     }
 }
 
-struct ViewModel {
+struct LoginViewModel {
     public func validateCredentials(username: String, password: String) throws {
         do {
             try validateUsername(username)

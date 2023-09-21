@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
 
-    private let viewModel = ViewModel()
+    private let viewModel = LoginViewModel()
     
     private let usernameField = TextField()
     private let passwordField = TextField(isSecure: true)
@@ -154,13 +154,13 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: UIGestureRecognizerDelegate {
+extension LoginViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         return touch.view === self.view
     }
 }
 
-extension ViewController {
+extension LoginViewController {
     private func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default))
