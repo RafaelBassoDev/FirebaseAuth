@@ -111,7 +111,7 @@ class LoginViewController: UIViewController {
     
     @objc
     private func didClickCreateAccountButton() {
-        
+        self.navigationController?.pushViewController(CreateAccountViewController(), animated: true)
     }
     
     @objc
