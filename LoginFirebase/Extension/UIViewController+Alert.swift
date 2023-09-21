@@ -13,7 +13,7 @@ extension UIViewController {
         case cancel(label: String = "Cancel", _ completionHandler: (() -> Void)? = nil)
         case destructive(label: String = "Cancel", _ completionHandler: (() -> Void)? = nil)
         
-        func getAction() -> UIAlertAction {
+        fileprivate func getAction() -> UIAlertAction {
             var title: String
             var style: UIAlertAction.Style
             var handler: () -> Void
