@@ -14,15 +14,15 @@ protocol ValidationStrategy {
 struct UsernameValidationStrategy: ValidationStrategy {
     func validate<T: CustomStringConvertible>(_ value: T) throws {
         let _value = value.description
-        if _value.first == nil { throw AuthError.emptyUsername }
-        if _value.count < 4 { throw AuthError.shortUsername }
+        if _value.first == nil { throw ValidationError.emptyUsername }
+        if _value.count < 4 { throw ValidationError.shortUsername }
     }
 }
 
 struct PasswordValidationStrategy: ValidationStrategy {
     func validate<T: CustomStringConvertible>(_ value: T) throws {
         let _value = value.description
-        if _value.first == nil { throw AuthError.emptyPassword }
-        if _value.count < 4 { throw AuthError.shortPassword }
+        if _value.first == nil { throw ValidationError.emptyPassword }
+        if _value.count < 4 { throw ValidationError.shortPassword }
     }
 }

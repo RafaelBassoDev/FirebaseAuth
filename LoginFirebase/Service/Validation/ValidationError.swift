@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AuthError: Error, LocalizedError {
+enum ValidationError: Error, LocalizedError {
     case emptyUsername, emptyPassword
     case shortUsername, shortPassword
     
