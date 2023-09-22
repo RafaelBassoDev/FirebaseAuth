@@ -12,6 +12,7 @@
 		5593C7352ABA1E84009C1543 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593C7342ABA1E84009C1543 /* LoginViewModel.swift */; };
 		5593C73E2ABCB5E7009C1543 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593C73D2ABCB5E7009C1543 /* CreateAccountViewController.swift */; };
 		5593C7412ABCD411009C1543 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593C7402ABCD411009C1543 /* UIViewController+Alert.swift */; };
+		5593C7432ABE1A16009C1543 /* CreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593C7422ABE1A16009C1543 /* CreateAccountViewModel.swift */; };
 		55C113E42A829EBC00B8AE0B /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C113E32A829EBC00B8AE0B /* TextField.swift */; };
 		55E7C7852A75995700BBD7C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E7C7842A75995700BBD7C6 /* AppDelegate.swift */; };
 		55E7C7872A75995700BBD7C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E7C7862A75995700BBD7C6 /* SceneDelegate.swift */; };
@@ -45,6 +46,7 @@
 		5593C7342ABA1E84009C1543 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		5593C73D2ABCB5E7009C1543 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		5593C7402ABCD411009C1543 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		5593C7422ABE1A16009C1543 /* CreateAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewModel.swift; sourceTree = "<group>"; };
 		55C113E32A829EBC00B8AE0B /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		55E7C7812A75995700BBD7C6 /* LoginFirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginFirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55E7C7842A75995700BBD7C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				5593C73D2ABCB5E7009C1543 /* CreateAccountViewController.swift */,
+				5593C7422ABE1A16009C1543 /* CreateAccountViewModel.swift */,
 			);
 			path = CreateAccount;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				5593C7352ABA1E84009C1543 /* LoginViewModel.swift in Sources */,
 				55E7C7892A75995700BBD7C6 /* LoginViewController.swift in Sources */,
 				55C113E42A829EBC00B8AE0B /* TextField.swift in Sources */,
+				5593C7432ABE1A16009C1543 /* CreateAccountViewModel.swift in Sources */,
 				55E7C7852A75995700BBD7C6 /* AppDelegate.swift in Sources */,
 				55E7C7872A75995700BBD7C6 /* SceneDelegate.swift in Sources */,
 				5593C7412ABCD411009C1543 /* UIViewController+Alert.swift in Sources */,
