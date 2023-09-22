@@ -11,8 +11,8 @@ class LoginViewController: UIViewController {
 
     private let viewModel = LoginViewModel()
     
-    private let usernameField = TextField()
-    private let passwordField = TextField(isSecure: true)
+    private let usernameField = TextField(placeholder: "Username or email")
+    private let passwordField = TextField(isSecure: true, placeholder: "Password")
 
     private let customFontAttributes: [NSAttributedString.Key: Any]? = {
        return [
