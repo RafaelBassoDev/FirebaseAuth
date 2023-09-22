@@ -66,7 +66,7 @@ class TextField: UIView {
     private var placeholderBottomAnchor: NSLayoutConstraint!
     private var placeholderHeightAnchor: NSLayoutConstraint!
     
-    init(isSecure: Bool = false, placeholder: String = "placeholder") {
+    init(placeholder: String = "placeholder", isSecure: Bool = false) {
         super.init(frame: .zero)
         
         backgroundColor = .secondarySystemBackground
