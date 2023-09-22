@@ -12,14 +12,9 @@ struct ValidationService {
     private let usernameValidationStrategy: ValidationStrategy
     private let passwordValidationStrategy: ValidationStrategy
     
-    init() {
-        self.usernameValidationStrategy = UsernameValidationStrategy()
-        self.passwordValidationStrategy = PasswordValidationStrategy()
-    }
-    
     init(
-        usernameValidationStrategy: ValidationStrategy,
-        passwordValidationStrategy: ValidationStrategy
+        usernameValidationStrategy: ValidationStrategy = UsernameValidationStrategy(),
+        passwordValidationStrategy: ValidationStrategy = PasswordValidationStrategy()
     ) {
         self.usernameValidationStrategy = usernameValidationStrategy
         self.passwordValidationStrategy = passwordValidationStrategy
