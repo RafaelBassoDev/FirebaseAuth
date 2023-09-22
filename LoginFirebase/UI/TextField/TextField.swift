@@ -35,7 +35,7 @@ class TextField: UIView {
         return textField
     }()
     
-    private lazy var placeholder: UILabel = {
+    private lazy var placeholderLabel: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: FONT_NAME, size: PLACEHOLDER_FONT_SIZE)
@@ -94,17 +94,17 @@ class TextField: UIView {
 
 extension TextField {
     private func setupPlaceholderView() {
-        addSubview(placeholder)
+        addSubview(placeholderLabel)
         NSLayoutConstraint.activate([
-            placeholder.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: -2),
-            placeholder.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
-            placeholder.trailingAnchor.constraint(equalTo: detailButton.leadingAnchor, constant: -5)
+            placeholderLabel.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: -2),
+            placeholderLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
+            placeholderLabel.trailingAnchor.constraint(equalTo: detailButton.leadingAnchor, constant: -5)
         ])
         
-        placeholderBottomAnchor = placeholder.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor)
+        placeholderBottomAnchor = placeholderLabel.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor)
         placeholderBottomAnchor.isActive = true
         
-        placeholderHeightAnchor = placeholder.heightAnchor.constraint(equalToConstant: 25)
+        placeholderHeightAnchor = placeholderLabel.heightAnchor.constraint(equalToConstant: 25)
         placeholderHeightAnchor.isActive = false
     }
     
@@ -141,7 +141,7 @@ extension TextField {
             
             addSubview(textField)
             NSLayoutConstraint.activate([
-                textField.topAnchor.constraint(equalTo: placeholder.bottomAnchor),
+                textField.topAnchor.constraint(equalTo: placeholderLabel.bottomAnchor),
                 textField.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
                 textField.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
                 textField.trailingAnchor.constraint(equalTo: detailButton.leadingAnchor, constant: -5)
@@ -174,8 +174,8 @@ extension TextField {
                 guard let self else { return }
                 placeholderHeightAnchor.isActive = false
                 placeholderBottomAnchor.isActive = true
-                placeholder.font = placeholder.font.withSize(PLACEHOLDER_FONT_SIZE)
-                placeholder.textColor = PLACEHOLDER_COLOR
+                placeholderLabel.font = placeholderLabel.font.withSize(PLACEHOLDER_FONT_SIZE)
+                placeholderLabel.textColor = PLACEHOLDER_COLOR
                 layoutIfNeeded()
             }
         }
@@ -187,8 +187,8 @@ extension TextField {
                 guard let self else { return }
                 placeholderBottomAnchor.isActive = false
                 placeholderHeightAnchor.isActive = true
-                placeholder.font = placeholder.font.withSize(PLACEHOLDER_FONT_SIZE_MINIMIZED)
-                placeholder.textColor = PLACEHOLDER_COLOR_MINIMIZED
+                placeholderLabel.font = placeholderLabel.font.withSize(PLACEHOLDER_FONT_SIZE_MINIMIZED)
+                placeholderLabel.textColor = PLACEHOLDER_COLOR_MINIMIZED
                 layoutIfNeeded()
             }
         }
