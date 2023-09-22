@@ -40,7 +40,6 @@ class TextField: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: FONT_NAME, size: PLACEHOLDER_FONT_SIZE)
         label.textColor = PLACEHOLDER_COLOR
-        label.text = "Username or email"
         return label
     }()
     
@@ -67,7 +66,7 @@ class TextField: UIView {
     private var placeholderBottomAnchor: NSLayoutConstraint!
     private var placeholderHeightAnchor: NSLayoutConstraint!
     
-    init(isSecure: Bool = false) {
+    init(isSecure: Bool = false, placeholder: String = "placeholder") {
         super.init(frame: .zero)
         
         backgroundColor = .secondarySystemBackground
@@ -87,6 +86,8 @@ class TextField: UIView {
         detailButton.addTarget(self, action: #selector(didPressDetailButton), for: .touchUpInside)
         
         textField.isSecureTextEntry = isSecure
+        
+        placeholderLabel.text = placeholder
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
