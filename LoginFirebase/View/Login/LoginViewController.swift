@@ -123,7 +123,7 @@ class LoginViewController: UIViewController {
             print("\(username)")
             print("\(password)")
         } catch {
-            showAlert(title: "Error", message: error.localizedDescription)
+            showAlert(title: "Error", message: error.localizedDescription, options: [.ok()])
         }
     }
     
@@ -157,13 +157,5 @@ class LoginViewController: UIViewController {
 extension LoginViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         return touch.view === self.view
-    }
-}
-
-extension LoginViewController {
-    private func showAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default))
-        present(alert, animated: true)
     }
 }
