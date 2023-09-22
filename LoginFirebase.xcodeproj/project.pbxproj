@@ -13,6 +13,9 @@
 		5593C73E2ABCB5E7009C1543 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593C73D2ABCB5E7009C1543 /* CreateAccountViewController.swift */; };
 		5593C7412ABCD411009C1543 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593C7402ABCD411009C1543 /* UIViewController+Alert.swift */; };
 		5593C7432ABE1A16009C1543 /* CreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593C7422ABE1A16009C1543 /* CreateAccountViewModel.swift */; };
+		5593C7462ABE1B88009C1543 /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593C7452ABE1B88009C1543 /* ValidationService.swift */; };
+		5593C7482ABE23FE009C1543 /* ValidationStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593C7472ABE23FE009C1543 /* ValidationStrategy.swift */; };
+		5593C74D2ABE245F009C1543 /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593C74C2ABE245F009C1543 /* ValidationError.swift */; };
 		55C113E42A829EBC00B8AE0B /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C113E32A829EBC00B8AE0B /* TextField.swift */; };
 		55E7C7852A75995700BBD7C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E7C7842A75995700BBD7C6 /* AppDelegate.swift */; };
 		55E7C7872A75995700BBD7C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E7C7862A75995700BBD7C6 /* SceneDelegate.swift */; };
@@ -47,6 +50,9 @@
 		5593C73D2ABCB5E7009C1543 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		5593C7402ABCD411009C1543 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		5593C7422ABE1A16009C1543 /* CreateAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewModel.swift; sourceTree = "<group>"; };
+		5593C7452ABE1B88009C1543 /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
+		5593C7472ABE23FE009C1543 /* ValidationStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationStrategy.swift; sourceTree = "<group>"; };
+		5593C74C2ABE245F009C1543 /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
 		55C113E32A829EBC00B8AE0B /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		55E7C7812A75995700BBD7C6 /* LoginFirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginFirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55E7C7842A75995700BBD7C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +128,32 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		5593C7442ABE1B71009C1543 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				5593C74A2ABE2414009C1543 /* Validation */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		5593C7492ABE2405009C1543 /* ValidationStrategy */ = {
+			isa = PBXGroup;
+			children = (
+				5593C7472ABE23FE009C1543 /* ValidationStrategy.swift */,
+			);
+			path = ValidationStrategy;
+			sourceTree = "<group>";
+		};
+		5593C74A2ABE2414009C1543 /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				5593C7492ABE2405009C1543 /* ValidationStrategy */,
+				5593C7452ABE1B88009C1543 /* ValidationService.swift */,
+				5593C74C2ABE245F009C1543 /* ValidationError.swift */,
+			);
+			path = Validation;
+			sourceTree = "<group>";
+		};
 		55C113D82A7C77FF00B8AE0B /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +214,7 @@
 		55E7C7832A75995700BBD7C6 /* LoginFirebase */ = {
 			isa = PBXGroup;
 			children = (
+				5593C7442ABE1B71009C1543 /* Service */,
 				5593C73F2ABCD401009C1543 /* Extension */,
 				55C113E12A829D8200B8AE0B /* UI */,
 				55C113DA2A7C867F00B8AE0B /* View */,
@@ -345,12 +378,15 @@
 			files = (
 				5593C73E2ABCB5E7009C1543 /* CreateAccountViewController.swift in Sources */,
 				5593C7352ABA1E84009C1543 /* LoginViewModel.swift in Sources */,
+				5593C7462ABE1B88009C1543 /* ValidationService.swift in Sources */,
+				5593C7482ABE23FE009C1543 /* ValidationStrategy.swift in Sources */,
 				55E7C7892A75995700BBD7C6 /* LoginViewController.swift in Sources */,
 				55C113E42A829EBC00B8AE0B /* TextField.swift in Sources */,
 				5593C7432ABE1A16009C1543 /* CreateAccountViewModel.swift in Sources */,
 				55E7C7852A75995700BBD7C6 /* AppDelegate.swift in Sources */,
 				55E7C7872A75995700BBD7C6 /* SceneDelegate.swift in Sources */,
 				5593C7412ABCD411009C1543 /* UIViewController+Alert.swift in Sources */,
+				5593C74D2ABE245F009C1543 /* ValidationError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
