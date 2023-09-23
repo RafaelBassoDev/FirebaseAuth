@@ -9,6 +9,8 @@ import UIKit
 
 class CreateAccountViewController: UIViewController {
     
+    private let viewModel = LoginViewModel()
+    
     private let usernameField = TextField(placeholder: "Username or email")
     private let passwordField = TextField(placeholder: "Password", isSecure: true)
 
@@ -91,7 +93,15 @@ extension CreateAccountViewController: UIGestureRecognizerDelegate {
 extension CreateAccountViewController {
     @objc
     private func didClickCreateAccountButton() {
-        self.navigationController?.pushViewController(CreateAccountViewController(), animated: true)
+        let username = usernameField.getText()
+        let password = passwordField.getText()
+        do {
+            try viewModel.validateCredentials(username: username, password: password)
+            print("\(username)")
+            print("\(password)")
+        } catch {
+            showAlert(title: "Error", message: error.localizedDescription, options: [.ok()])
+        }
     }
     
     @objc
